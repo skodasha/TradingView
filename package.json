@@ -5,7 +5,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
-    "request-promise": "^4.2.6"
+    "request-promise": "^4.2.6",
+    "socket.io-client": "^3.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
