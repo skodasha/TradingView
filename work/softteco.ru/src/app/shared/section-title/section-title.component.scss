@@ -1,0 +1,50 @@
+@import '../../theme/variables.scss';
+@import '../../theme/mixins.scss';
+
+.title-wrapper.blue {
+    color: $blue-bright;
+}
+
+.title-wrapper.gray {
+    color: $gray-dark;
+}
+
+.title-wrapper.white {
+    color: $white;
+}
+
+h2 {
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: 1.09;
+    letter-spacing: -2.5px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Montserrat-Bold';
+    span {
+        display: block;
+    }
+
+    @include adaptive(769px) {
+        font-size: 2.5rem;
+    }
+
+    @include adaptive(500px) {
+        font-size: 1.5rem;
+        letter-spacing: -0.9px;
+    }
+}
+
+p {
+    font-size: 1.125rem;
+    line-height: 1.11;
+    letter-spacing: normal;
+    text-align: center;
+    font-weight: normal;
+    margin-top: 20px;
+
+    @include adaptive(500px) {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+}

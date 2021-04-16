@@ -1,0 +1,66 @@
+<form class="contact-form" autocomplete="off" [formGroup]="signUpForm">
+    <div *ngFor="let item of signUpFormFields" class="form-authorize__item" [class.long]="fields[item].long">
+        <input
+          *ngIf="fields[item].type === 'text'"
+          formControlName="{{item}}"
+          class="contact-form__input"
+          id="{{item}}"
+          name="{{item}}"
+          type="{{fields[item].type}}"
+          (focus)="focusEvent(item)"
+          [class.form-authorize__invalid-input]="signUpForm.get(item).touched && signUpForm.get(item).valid && signUpForm.get(item).value.length === 0"
+          (blur)="blurEvent(item, null, $event)">
+        <input
+          *ngIf="fields[item].type === 'number'"
+          formControlName="{{item}}"
+          class="contact-form__input"
+          id="{{item}}"
+          name="{{item}}"
+          type="text"
+          (focus)="focusEvent(item, 'phone')"
+          (blur)="blurEvent(item, 'phone', $event)"
+          [(ngModel)]="phoneNumber"
+          (input)="phoneNumberHandler($event)">
+        <textarea
+          *ngIf="fields[item].type === 'textarea'"
+          [class.form-authorize__invalid-input]="signUpForm.get(item).touched && signUpForm.get(item).valid && signUpForm.get(item).value.length === 0"
+          formControlName="{{item}}"
+          class="contact-form__input contact-form__input-textarea"
+          id="{{item}}"
+          name="{{item}}"
+          (focus)="focusEvent(item)"
+          (blur)="blurEvent(item, null, $event)">
+        </textarea>
+        <label for="{{item}}"
+          class="form-authorize__absolute-label"
+          [class.focused]="fields[item].focused"
+          [class.filled]="signUpForm.value[item].length">{{fields[item].placeholder}}</label>
+        <div *ngFor="let validation of validationMessages[item]" class="form-authorize__validation-message">
+          <div class="error-message"
+            *ngIf="signUpForm.get(item).hasError(validation.type) &&
+              signUpForm.get(item).invalid &&
+              signUpForm.get(item).touched ||
+              signUpForm.get(item).touched && signUpForm.get(item).valid && signUpForm.get(item).value.length === 0">{{validation.message}}</div>
+        </div>
+    </div>
+
+    <label class="form-authorize__item  long">
+        <input type="checkbox" id="termsOfUse" [(ngModel)]="termsOfUse" [ngModelOptions]="{standalone: true}">
+        <img src="assets/checkbox.svg" class="form-authorize__svg-icon">
+        <img src="assets/checkbox-checked.svg" class="form-authorize__svg-icon form-authorize__svg-icon--checked" *ngIf="termsOfUse">
+        <div for="termsOfUse"class="form-authorize__label">{{termsOfUseText}}</div>
+    </label>
+
+    <app-shared-button
+      (click)="onSubmit(signUpForm)"
+      class="center"
+      [buttonTitle]="buttonTitle"
+      [disabled]="isButtonDisabled"
+      [buttonTheme]="buttonTheme"></app-shared-button>
+
+    <p class="form-note {{note.status}}" [ngClass]="{'hide': !note.show}">
+        <span class="i-success"></span>
+        <span class="i-error"></span>
+        {{note.text}}
+    </p>
+</form>

@@ -1,0 +1,129 @@
+@import "./../theme/mixins.scss";
+@import "./../theme/variables.scss";
+
+.content-wrapper {
+  padding: 12% 0 9%;
+  background-color: $gray-dark;
+  color: $gray-light;
+  text-align: center;
+
+  @include adaptive(768px) {
+    padding: 60px 0 50px;
+  }
+}
+
+.services {
+  @include flex(space-between, flex-start);
+  flex-wrap: wrap;
+  text-align: left;
+
+  @include adaptive(768px) {
+    margin: 0 -9%;
+  }
+
+  @include adaptive(480px) {
+    margin: 0 -20px;
+  }
+
+  &-block {
+    width: 46%;
+    margin-bottom: 5%;
+    font-size: 1.125rem;
+    line-height: 1.5;
+
+    @include adaptive(768px) {
+      font-size: 0.875rem;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 20px 20px 20px 45px;
+
+      &.open {
+        background: $another-gray;
+      }
+    }
+
+    &__title {
+      @include flex(stretch, center);
+      font: bold 1.5rem/1.2 'Montserrat-Bold';
+      letter-spacing: -0.9px;
+      word-break: break-word;
+      height: 100px;
+      position: relative;
+      z-index: 2;
+      
+      @include adaptive(768px) {
+        font-size: 1.25rem;
+        padding-right: 40px;
+        height: 80px;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &:after {
+          content: '';
+          display: block;
+          width: 24px;
+          height: 24px;
+          border: 5px solid $blue-bright;
+          border-right: none;
+          border-top: none;
+          transform: rotate(-135deg);
+          position: absolute;
+          right: 5px;
+          top: 50%;
+          margin-top: -12px;
+          transition: all .3s ease;
+
+          .open & {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+
+      @include adaptive(480px) {
+        font-size: 1.125rem;
+      }
+
+      &:before {
+        content: attr(data-title);
+        font: bold 6.25rem/1 'RobotoMono-Regular', monospace;
+        color: $blue;
+        position: absolute;
+        top: 50%;
+        left: -30px;
+        z-index: -1;
+        transform: translateY(-55%);
+
+        @include adaptive(768px) {
+          font-size: 5rem;
+        }
+      }
+    }
+
+    &__text {
+
+      @include adaptive(768px) {
+        display: none;
+
+        .open & {
+          display: block;
+        }
+      }
+
+      p {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.button {
+  display: block;
+  margin-top: 24px;
+  margin-bottom: 15%;
+
+  @include adaptive(480px) {
+    width: 100%;
+  }
+}

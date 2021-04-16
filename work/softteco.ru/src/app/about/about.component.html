@@ -1,0 +1,13 @@
+<div class="content-wrapper">
+  <div class="content">
+    <h2>О нас</h2>
+
+    <div class="about-block">
+      <div class="about-block__item" *ngFor="let content of contentBlocks">
+        <p class="h2">{{content.title}}</p>
+        <p class="h3">{{content.subtitle}}</p>
+        <p>{{content.text}}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,124 @@
+@import '../theme/variables.scss';
+@import '../theme/mixins.scss';
+
+.branchen {
+  padding: 9% 0 12%;
+}
+
+.branches__list-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 1440px;
+  width: 100%;
+  margin: 9% auto 0;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    display: inline-block;
+    background-image: linear-gradient(to right, $white, rgba($white, 0));
+    width: 14%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+
+    @include adaptive(768px) {
+      display: none;
+    }
+  }
+
+  &:after {
+    left: auto;
+    right: 0;
+    transform: rotateY(-180deg);
+  }
+
+  &:hover {
+    .branchen__list {
+      animation-play-state: paused
+    }
+  }
+}
+
+.branchen__list {
+  display: inline-block;
+  font: bold 52px/1.35 'Montserrat-Bold';
+  letter-spacing: -2px;
+  color: $blue;
+  animation: marquee 50s linear infinite;
+
+  .item {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 0 30px 0 46px;
+    transition: color .3s ease;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: $blue;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -8px;
+    }
+
+    &:hover {
+      color: $blue-bright;
+
+      &:before {
+        background-color: $blue-bright;
+      }
+
+      + .item {
+        &:before {
+          background-color: $blue-bright;
+        }
+      }
+    }
+  }
+
+  @include adaptive(768px) {
+    display: block;
+    font-size: 28px;
+    line-height: 1.14;
+    letter-spacing: -1px;
+    color: $blue;
+    animation: none;
+
+    .item {
+      display: block;
+      white-space: normal;
+      word-break: break-word;
+      text-align: left;
+      padding: 0 20px;
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  @include adaptive(400px) {
+    font-size: 24px;
+  }
+}
+
+@keyframes marquee {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.branchen__list__mobile {
+  @include adaptive(768px) {
+    display: none !important;
+  }
+}

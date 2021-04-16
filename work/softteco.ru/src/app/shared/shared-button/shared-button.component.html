@@ -1,0 +1,11 @@
+<a href="#{{buttonHref}}" *ngIf="buttonHref; else button">
+  <button class="shared-button {{buttonTheme}} {{buttonSize}}" [class.disabled]="disabled">
+    <span>{{buttonTitle}}</span>
+  </button>
+</a>
+
+<ng-template #button>
+  <button class="shared-button {{buttonTheme}} {{buttonSize}}" [class.disabled]="disabled">
+    <span>{{buttonTitle}}</span>
+  </button>
+</ng-template>

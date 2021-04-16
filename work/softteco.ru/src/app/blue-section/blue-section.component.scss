@@ -1,0 +1,42 @@
+@import '../theme/variables.scss';
+@import '../theme/mixins.scss';
+
+.blue-section {
+    background-color: $blue-bright;
+    background-image: url('/assets/img/bg-blue.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    padding: 120px 118px;
+    color: $white;
+    font-family: 'Muli-Regular';
+    font-size: 32px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.63;
+    letter-spacing: normal;
+    text-align: center;
+
+    @include adaptive(769px) {
+        padding: 60px 20px;
+        font-size: 24px;
+        line-height: 1.42;
+        word-wrap: break-word;
+    }
+
+    div {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@-moz-document url-prefix() {
+    .blue-section {
+        @include adaptive(769px) {
+            word-wrap: anywhere;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<div class="portfolio">
+  <div class="portfolio-wrapper">
+    <app-section-title
+    [title]="title"
+    [subTitle]="subTitle"></app-section-title>
+    <div class="portfolio__items">
+      <div class="portfolio-item" *ngFor="let item of portfolioItems">
+        <div class="portfolio-item__block portfolio-item__text">
+          <div class="portfolio-item__text--main">
+            <h3 class="portfolio-item__title" (click)="showDescription(item)" [class.opened]="!item.closed">{{item.title}}</h3>
+            <h4 class="portfolio-item__sub-title">{{item.subTitle}}</h4>
+          </div>
+  
+          <div class="portfolio-item__text-full" [class.opened]="!item.closed">{{item.textFull}}
+            <ul><li *ngFor="let point of item.textList">{{point}}</li></ul>
+          </div>
+        </div>
+        <div class="portfolio-item__block portfolio-item__image" [style.backgroundImage]="item.imgSrc +  '' + imagePostFix + '.jpg)'"></div>
+      </div>
+    </div>
+  </div>
+</div>

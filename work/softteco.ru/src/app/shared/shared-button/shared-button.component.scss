@@ -1,0 +1,67 @@
+@import '../../theme/variables.scss';
+
+.shared-button {
+  border-radius: 40px;
+  text-align: center;
+  font: bold .625rem/1.2 'Montserrat-Bold';
+  letter-spacing: 2px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  text-transform: uppercase;
+  transition: all .3s ease;
+
+  &:active, &:focus, &:hover {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+
+  &.white {
+    color: $black;
+    background: $white;
+
+    &:active, &:focus, &:hover {
+      color: $white;
+      background: $blue-bright;
+    }
+
+    .fixed & {
+      color: $white;
+      background: $blue-bright;
+
+      &:active, &:focus, &:hover {
+        color: $black;
+        background: $white;
+      }
+    }
+  }
+
+  &.blue {
+    color: $white;
+    background: $blue-bright;
+
+    &:active, &:focus, &:hover {
+      background-color: $blue;
+    }
+  }
+
+  &.small {
+    padding: 14px 35px;
+  }
+
+  &.big {
+    padding: 21px 47px;
+    min-width: 245px;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+
+    &.blue {
+      background: $gray;
+      color: $gray-dark;
+    }
+  }
+}

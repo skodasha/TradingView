@@ -1,0 +1,17 @@
+<div class="branchen">
+  <div class="content">
+    <app-section-title [title]="title" [subTitle]="subTitle"></app-section-title>
+  </div>
+  <div class="branches__list-wrapper">
+    <div class="branchen__list">
+      <div class="item" *ngFor="let phrase of phrases">
+        {{phrase}}
+      </div>
+    </div>
+    <div class="branchen__list branchen__list__mobile">
+      <div class="item" *ngFor="let phrase of phrases">
+        {{phrase}}
+      </div>
+    </div>
+  </div>
+</div>

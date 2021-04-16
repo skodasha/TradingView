@@ -1,0 +1,11 @@
+<div class="customers">
+  <app-section-title
+  [title]="['Нам можно доверять']"
+  [subTitle]="'Мы гордимся нашими успехами и доверием, которое оказывают нам крупнейшие мировые бренды.'"></app-section-title>
+
+  <div class="customers-list">
+    <a class="customers-list__item" *ngFor="let customer of customers">
+      <img [src]="customer.icon" alt="" [style.height.px]="customer.height">
+    </a>
+  </div>
+</div>

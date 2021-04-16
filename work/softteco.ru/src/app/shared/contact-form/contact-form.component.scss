@@ -1,0 +1,202 @@
+@import '../../theme/variables.scss';
+@import '../../theme/mixins.scss';
+
+.contact-form {
+  padding: 16px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.form-authorize__item {
+  width: 47.5%;
+  // max-width: 285px;
+  margin-bottom: 30px;
+  position: relative;
+  &.long {
+    max-width: none;
+    width: 100%;
+
+    input {
+      width: 100%;
+      max-width: none;
+    }
+  }
+
+  @include adaptive(600px) {
+    width: 100%;
+  }
+}
+
+label.form-authorize__item {
+  @include adaptive(769px) {
+    margin-bottom: 5px;
+  }
+}
+
+.form-authorize__absolute-label {
+  position: absolute;
+  top: 18px;
+  left: 15px;
+  font-size: 14px;
+  color: $white;
+  transition: all 200ms linear;
+
+  &.filled {
+    font-size: 12px;
+    line-height: 1.5;
+    top: -19px;
+    color: $gray;
+    transition: all 200ms linear;
+  }
+
+  &.focused {
+    font-size: 12px;
+    line-height: 1.5;
+    top: -19px;
+    color: $blue-bright;
+    transition: all 200ms linear;
+  }
+}
+
+.contact-form__input {
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  line-height: 18px;
+  color: white;
+  padding: 17px 15px;
+  background: $gray;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  font-weight: normal;
+
+  border: 1px solid transparent;
+
+  &:active, &:hover, &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:focus {
+    border: 1px solid $blue-bright;
+  }
+
+  &.ng-invalid.ng-touched,
+  .form-authorize__invalid-input {
+    border: 1px solid $orange;
+
+    & + .form-authorize__absolute-label {
+      @extend .form-authorize__absolute-label.focused;
+      color: $gray !important;
+    }
+  }
+}
+
+.form-authorize__invalid-input {
+  & + .form-authorize__absolute-label {
+    position: absolute;
+    left: 15px;
+    font-size: 12px;
+    line-height: 1.5;
+    top: -19px;
+    color: $gray;
+    transition: all 200ms linear;
+  }
+}
+
+#termsOfUse {
+  display: none;
+}
+
+.form-authorize__label {
+  font-size: 12px;
+  line-height: 1.5;
+  color: $gray-light;
+  padding-left: 38px;
+  display: block;
+  margin-bottom: 40px;
+}
+
+.form-authorize__svg-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.form-authorize__svg-icon--checked {
+  left: 5px;
+  top: 7px;
+}
+
+.center {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.form-authorize__validation-message {
+  position: absolute;
+  bottom: -18px;
+  left: 15px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: $orange;
+  letter-spacing: 0;
+}
+
+.contact-form__input-textarea {
+  resize: none;
+}
+
+.form-note {
+  text-align: center;
+  font: bold 1rem/1.25 'Montserrat-Regular';
+  margin: 20px auto 0;
+  max-width: 70%;
+
+  &.hide {
+    opacity: 0;
+  }
+
+  span {
+    display: inline-block;
+    width: 22px;
+    height: 20px;
+    margin-right: 12px;
+  }
+
+  .i-success {
+    background: url('../../../assets/form-note-success.svg') 0 0 no-repeat;
+  }
+
+  .i-error {
+    background: url('../../../assets/form-note-error.svg') 0 0 no-repeat;
+  }
+
+
+  &.success {
+    color: $green;
+
+    .i-error {
+      display: none;
+    }
+  }
+
+  &.error {
+    color: $orange-light;
+    max-width: 68%;
+
+    .i-success {
+      display: none;
+    }
+  }
+}
+
+.error-message {
+  white-space: nowrap;
+}

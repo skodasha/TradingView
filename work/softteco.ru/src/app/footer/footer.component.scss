@@ -1,0 +1,123 @@
+@import '.././theme/mixins.scss';
+@import '.././theme/variables.scss';
+
+.footer {
+    background-color: $black;
+    padding: 4px 0;
+
+    @include adaptive(769px) {
+        padding: 18px 0;
+    }
+}
+
+.footer-container {
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 118px;
+    @include flex(space-between, center);
+    margin: 0 auto;
+
+    @include adaptive(769px) {
+        justify-content: flex-start;
+        flex-direction: column-reverse;
+        padding: 0 10px;
+    }
+}
+
+.footer-logo {
+    display: block;
+    width: 78px;
+    opacity: 0.5;
+
+    @include adaptive(769px) {
+        display: none;
+    }
+}
+
+.footer-copyright {
+    opacity: 0.3;
+    font-family: 'Muli-Regular';
+    font-size: 10px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.8;
+    letter-spacing: normal;
+    text-align: center;
+    color: $white;
+
+    @include adaptive(768px) {
+        font-size: 12px;
+    }
+}
+
+.footer-social {
+    @include flex();
+    @include adaptive(769px) {
+        padding-bottom: 20px;
+        justify-content: center;
+    }
+}
+
+.footer-social__link {
+    margin-right: 19px;
+    display: block;
+    height: 14px;
+    width: 20px;
+    position: relative;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    img {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        &:last-child {
+            opacity: 0;
+            z-index: 1;
+        }
+
+        &:first-child {
+            opacity: 1;
+        }
+    }
+
+    &:hover {
+        img {
+            &:last-child {
+                opacity: 1;
+                @include adaptive(768px) {
+                    opacity: 0;
+                }
+            }
+    
+            &:first-child {
+                opacity: 0;
+                @include adaptive(768px) {
+                    opacity: 1;
+                }
+            }
+
+            transition: all 100ms linear;
+        }
+    }
+
+    @include adaptive(767px) {
+        color: red;
+        &:hover img{
+            &:last-child {
+                display: none;
+                opacity: 0;
+            }
+    
+            &:first-child {
+                display: block;
+                opacity: 1;
+            }
+        }
+    }
+}

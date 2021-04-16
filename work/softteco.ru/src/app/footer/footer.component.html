@@ -1,0 +1,12 @@
+<div class="footer">
+  <div class="footer-container">
+    <a href="https://www.softteco.com" target="_blank" class="footer-logo"><app-logo [logoTheme]="getLogoTheme()"></app-logo></a>
+    <div class="footer-copyright">2008-{{currentYear}} SoftTeco. Все права защищены.</div>
+    <div class="footer-social">
+      <a class="footer-social__link" *ngFor="let socialIcon of socialicons" target="_blank" (click)="visitSocial(socialIcon)">
+        <img [src]="socialIcon.icon" alt="{{socialIcon.title}}">
+        <img [src]="socialIcon.iconHovered" alt="{{socialIcon.title}}">
+      </a>
+    </div>
+  </div>
+</div>

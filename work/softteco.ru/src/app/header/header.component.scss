@@ -1,0 +1,89 @@
+@import "./../theme/mixins.scss";
+@import "./../theme/variables.scss";
+
+.header {
+  color: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  padding: 47px 0;
+  font-size: .875rem;
+  font-family: "Montserrat-Regular", Helvetica, Arial, sans-serif;
+  transition: all .3s ease;
+
+
+  @include adaptive(768px) {
+    position: absolute;
+  }
+}
+
+.fixed {
+  box-shadow: 0 4px 8px 0 rgba(60, 61, 65, 0.2);
+  background: rgba($white, .8);
+  color: $gray-dark;
+  padding: 30px 0;
+}
+
+.content {
+  @include flex(space-between, center);
+
+  @include adaptive(768px) {
+    justify-content: center;
+  }
+
+  div {
+    white-space: nowrap;
+
+    @include adaptive(768px) {
+      display: none;
+    }
+  }
+}
+
+.logo {
+  cursor: pointer;
+
+  @include adaptive(768px) {
+    width: 135px;
+  }
+}
+
+.link-phone {
+  color: inherit;
+  cursor: default;
+  text-decoration: none;
+  margin-right: 4vw;
+  font-family: "Montserrat-Bold", Helvetica, Arial, sans-serif;
+
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+}
+
+nav {
+  @include adaptive(1100px) {
+    display: none;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 15px;
+  }
+
+  a {
+    color: $white;
+    text-decoration: none;
+
+    .fixed & {
+      color: $gray-dark;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

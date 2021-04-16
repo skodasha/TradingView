@@ -1,0 +1,15 @@
+@mixin flex ($justify-content: stretch, $align-items: stretch) {
+  display:-webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -o-flex;
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin adaptive($media) {
+	@media only screen and (max-width: $media) {
+    @content
+  }
+}

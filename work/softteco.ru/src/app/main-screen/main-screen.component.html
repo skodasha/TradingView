@@ -1,0 +1,15 @@
+<app-header [fixedHeader]="fixedHeader"></app-header>
+
+<div class="content-wrapper" [style.backgroundImage]="'url(/assets/img/main' +  '' + imagePostFix + '.jpg)'">
+  <div class="content">
+    <a href="mailto:tauras@softteco.eu" class="link-phone">tauras@softteco.eu</a>
+    <h1><span></span></h1>
+    <app-shared-button
+      class="contact-button"
+      [buttonHref]="buttonHref"
+      [buttonTheme]="buttonTheme"
+      [buttonSize]="buttonSize"
+      [buttonTitle]="buttonTitle"></app-shared-button>
+    <a href="#about" class="link-scroll">Прокрутить вниз</a>
+  </div>
+</div>

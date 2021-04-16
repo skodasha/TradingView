@@ -1,0 +1,22 @@
+
+<div class="contacts">
+  <div class="contacts-wrapper">
+    <app-section-title
+    [title]="title"
+    [theme]="titleTheme"></app-section-title>
+
+    <div class="contacts-area">
+<!--      <div class="contacts-area__item contacts-area__item&#45;&#45;left">-->
+<!--        <img src="assets/img/yezhova.png" alt="" class="manager">-->
+<!--        <p class="contacts-area__big-text">Ekaterina Yezhova</p>-->
+<!--        <p class="contacts-area__medium-text">Account Executive DACH</p>-->
+<!--        <a class="contacts-area__medium-text" href="tel:+4922619795503">+49 22 61 979 55 03</a>-->
+<!--        <a class="contacts-area__medium-text" href="mailto:e.ezhova@softteco.com ">e.ezhova@softteco.com </a>-->
+<!--      </div>-->
+      <div class="contacts-area__item contacts-area__item--right">
+          <p class="contacts-area__medium-text">{{longText}}</p>
+          <app-contact-form></app-contact-form>
+      </div>
+    </div>
+  </div>
+</div>

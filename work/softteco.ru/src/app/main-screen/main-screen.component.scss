@@ -1,0 +1,134 @@
+@import "./../theme/mixins.scss";
+@import "./../theme/variables.scss";
+
+.content-wrapper {
+  background-color: $gray-dark;
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: $gray-dark url('../../assets/img/main.jpg') center top /cover no-repeat;
+  min-height: 100vh;
+  position: relative;
+  @include adaptive(768px) {
+    background-position: 13% 0;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    background: rgba(0, 0, 0, .5);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.content {
+  @include flex(center, center);
+  height: 100vh;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+
+  @include adaptive(768px) {
+    flex-direction: column;
+  }
+}
+
+h1 {
+  color: #fff;
+  max-width: 630px;
+  font-weight: normal;
+
+  span {
+    font-weight: bold;
+    font-family: "Montserrat-Bold", Helvetica, Arial, sans-serif;
+  }
+
+  @include adaptive(768px) {
+    max-width: 80%;
+    margin: 15vh 0 11vh;
+  }
+}
+
+
+
+.link-phone {
+  color: $white;
+  cursor: default;
+  text-decoration: none;
+  font: bold 1.125rem 'Montserrat-Bold';
+  display: none;
+
+  @include adaptive(768px) {
+    display: block;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+}
+
+.contact-button {
+  display: none;
+
+  @include adaptive(768px) {
+    display: block;
+  }
+}
+
+.link-scroll {
+  display: inline-block;
+  text-align: center;
+  font-size: .75rem;
+  text-decoration: none;
+  color: #fff;
+  opacity: .5;
+  position: absolute;
+  bottom: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @include adaptive(768px) {
+    display: none;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    background: url('../../assets/mouse.svg') center no-repeat;
+    width: 28px;
+    height: 47px;
+    left: 50%;
+    margin: 0 auto 20px;
+    animation: up-down 2.5s infinite;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@keyframes up-down {
+  0%, 100% {
+    transform: translateY(-5px)
+  }
+  50% {
+    transform: translateY(5px)
+  }
+}
+
+@keyframes change-title {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

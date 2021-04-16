@@ -1,0 +1,97 @@
+@import '../theme/mixins.scss';
+@import '../theme/variables.scss';
+
+.customers {
+    padding: 130px 78px 0;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+
+    @include adaptive(769px) {
+        padding: 60px 30px;
+    }
+
+    @include adaptive(550px){
+        padding-bottom: 0;
+    }
+}
+
+.customers-list {
+    @include flex(space-between);
+    flex-wrap: wrap;
+    max-width: 1085px;
+    margin: 0 auto;
+    padding: 120px 20px 0;
+
+    @include adaptive(768px) {
+        padding: 45px 0 40px;
+    }
+
+    @include adaptive(550px) {
+        padding-bottom: 0;
+    }
+}
+
+.customers-list__item {
+    width: 33%;
+    margin-bottom: 100px;
+    text-align: right;
+    opacity: 0.7;
+
+    @include adaptive(769px) {
+        margin-bottom: 50px;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &:nth-child(3n + 1) {
+        text-align: left;
+    }
+    &:nth-child(3n + 2){
+        text-align: center;
+    }
+
+    @include adaptive(870px) {
+        width: 50%;
+
+        &:nth-child(3n + 1) {
+            text-align: initial
+        }
+        &:nth-child(3n + 2) {
+            text-align: initial;
+        }
+        &:nth-child(odd) {
+            text-align: center;
+        }
+        &:nth-child(even) {
+            text-align: center;
+        }
+    }
+
+    @include adaptive(640px) {
+        img {
+            width: 100px;
+            height: auto !important;
+        }
+
+        &:nth-child(3n + 1) {
+            text-align: center;
+        }
+        &:nth-child(3n + 2){
+            text-align: center;
+        }
+
+
+    }
+
+    @include adaptive(500px) {
+        &:nth-child(odd) {
+            text-align: left;
+        }
+        &:nth-child(even) {
+            text-align: right;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<div class="content-wrapper">
+  <div class="content">
+    <app-section-title
+      [title]="title"
+      [subTitle]="subTitle"></app-section-title>
+    <app-shared-button
+      class="button"
+      [buttonHref]="buttonHref"
+      [buttonTheme]="buttonTheme"
+      [buttonTitle]="buttonTitle"></app-shared-button>
+
+    <div class="services">
+      <div class="services-block" [ngClass]="{'open': service.opened}" *ngFor="let service of services, let i = index" (click)="openServicesBlock(i)">
+        <p class="services-block__title" [attr.data-title]="getFirstLetter(service.title)">{{service.title}}</p>
+        <div class="services-block__text">
+          <p *ngFor="let text of service.text">{{text}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
